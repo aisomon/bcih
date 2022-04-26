@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="Description" content="Enter your description here" />
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		/>
+        
+		
+		
+        {% block header %}
+            
+        {% endblock header %}
+            
+		<link rel="stylesheet" href="{% static ''%}css/style.css" />
+		<link rel="stylesheet" href="{% static ''%}css/loader.css">
+
+		<title>
+            {% block title %}
+                BCHI
+            {% endblock title %}  
+        </title>
+	</head>
+	<body onload="toggleSidebar()">
+		<div>
+			<!-- <side-bar></side-bar> -->
+			<div class="js-render">
+				<div id="mySidebar" class="sidebar bg-light">
+					<div class="title d-flex align-items-center">
+						<img src="{% static '' %}img/logo-update.png" alt="logo" style="height: 50px;width:auto;object-fit:contain;">
+					</div>
+					<hr />
+					<ul class="nav flex-column" id="nav_accordion">
+						<li class="nav-item">
+							<a class="nav-link abouts" href="#"><i class="nav-icon fas fa-tachometer-alt"></i><span
+									class="nav-name">Dashboard</span></a>
+						</li>
+						
+						<li class="nav-item accordion">
+							<a class="nav-link "><i
+									class="nav-icon fas fa-layer-group dropdown-btn"></i><span class="nav-name">Test</span>
+								<span class=""><i class="right fas fa-angle-left"></i></span></a>
+						</li>
+						<ul class="dropdown-container nav flex-column panel">
+							<li class="nav-item ">
+								<a class="nav-link abouts " href="#"><i
+										class="nav-icon far fa-circle"></i><span class="nav-name">Test List</span></a>
+							</li>
+                            <li class="nav-item ">
+								<a class="nav-link abouts " href="{% url 'home' %}"><i
+										class="nav-icon far fa-circle"></i><span class="nav-name">Create New Test</span></a>
+							</li>
+							
+						</ul>
+						<li class="nav-item accordion">
+							<a class="nav-link"><i class="nav-icon fas fa-money-bill dropdown-btn"></i><span
+									class="nav-name">Payment Option</span> <span class=""><i
+										class="right fas fa-angle-left"></i></span></a>
+						</li>
+						<ul class="dropdown-container nav flex-column panel">
+							<li class="nav-item">
+								<a class="nav-link abouts" href="#."><i
+										class="nav-icon far fa-circle"></i><span class="nav-name">Make New Payment</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link abouts" href="#."><i
+										class="nav-icon far fa-circle"></i><span class="nav-name">Payment History</span></a>
+							</li>
+						</ul>
+						
+						<li class="nav-item">
+							<a class="nav-link abouts" href="#."><i
+									class="nav-icon fas fa-user-friends"></i><span class="nav-name">Customer List</span></a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="#."><i class="nav-icon fas fa-users"></i><span
+									class="nav-name">Users</span></a>
+						</li>
+						<li class="nav-item accordion">
+							<a class="nav-link" href="#"><i class="nav-icon fas fa-cog"></i><span
+									class="nav-name">Settings</span><i class="right fas fa-angle-left"></i></a>
+						</li>
+						<ul class="dropdown-container nav flex-column panel">
+							<li class="nav-item">
+								<a class="nav-link" href="#"><i class="nav-icon far fa-dot-circle"></i><span
+										class="nav-name">Company Profile</span></a>
+							</li>
+						</ul>
+					</ul>
+				</div>
+				<!-- <side-bar></side-bar> -->
+			</div>
+		</div>
+		<div id="main">
+			<nav id="navbar_top" class="navbar navbar-expand-lg navbar-light bg-light bar">
+				<ul class="navbar-nav mr-auto d-flex align-items-center">
+					<div class="nav-item mr-3" onclick="toggleSidebar()" onclick="toggleSidebar()"> <i class="fas fa-bars"></i>
+					</div>
+				</ul>
+				<ul class="navbar-nav ml-auto d-flex align-items-center dropdown-menu-right">
+					<div class="nav-item dropdown"> <a class="nav-link" data-toggle="dropdown" href="#"> <img
+							src="{% static '' %}img/logo-update.png" class="img-circle" style="height: 40px; width:auto; object-fit:contain;" alt="User Image"> {{user.first_name}}
+						</a>
+						<div class="dropdown-menu mt-3" x-placement="bottom-start"
+							style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-65px, 38px, 0px);">
+							<a href="#." class="dropdown-item"><i class="fas fa-user-edit mr-2"></i> Change
+								Avatar</a>
+							<div class="dropdown-divider"></div> <a href="#." class="dropdown-item"><i
+									class="fas fa-sign-out-alt mr-2"></i> Sign Out</a>
+						</div>
+					</div>
+			</nav>
+            
+			{% block content %}
+				
+			{% endblock content %}
+
+			<footer-foot></footer-foot>
+		</div>
+
+		{% block extracontent %}
+				
+		{% endblock extracontent %}
+
+		<section class="container">
+			<div class="spinner spin-1"></div>
+			<div class="spinner spin-2"></div>
+			<div class="spinner spin-3"></div>
+		</section>
+
+		<script src="{% static ''%}js/preloader.js"></script>
+		<script src="{% static ''%}js/footer.js" defer></script>
+        <script src="{% static ''%}js/nav.js" ></script>
+		
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+		
+		{% block customjs %}
+			
+		{% endblock customjs %}
+			
+
+	</body>
+</html>

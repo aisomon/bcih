@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>BCIH-Invoice</title>
+		<style>
+			#customers td {
+			text-align: center;
+			}
+
+			#customers th {
+				text-align: center;
+				background-color: rgb(19,70,92);
+				color: white;
+			}
+
+			#customers tr {
+				padding-top: 3px;
+			}
+
+			.txt {
+				text-align: left;
+			}
+
+			.rr {
+				text-align: center;
+			}
+
+			.finish {
+				font-size: 17px;
+				font-weight: 600;
+				color: rgba(255, 168, 7, 0.87);
+			}
+			@page {
+				size: a4 portrait;
+				@frame header_frame { /* Static Frame */
+				-pdf-frame-content: header_content;
+				left: 30pt; width: 540pt; top: 15pt; height: 540pt;
+				}
+			
+			@frame footer_frame { /* Another static Frame */
+				-pdf-frame-content: footer_content;
+				left: 30pt; width: 540pt; top: 555pt; height: 365pt;
+				}
+			}
+		</style>
+	</head>
+	<body onload="window.print()">
+		<!-- Content for Static Frame 'header_frame' -->
+		<div id="header_content">
+
+			<table>
+				<tr>
+					<td>
+						<div class="text_bg text-uppercase"
+							style="text-align:left;background-color:rgb(19,70,92);padding-top:7px;padding-left:3px;color:white;font-weight:bold;">
+							BILL TO
+						</div>
+						
+					</td>
+					<td></td>
+					<td>
+						<div class="text_bg text-uppercase"
+							
+							
+						</div>
+					</td>
+					
+
+				</tr>
+				
+				
+			</table>
+			<table style="margin-top: 5px;">
+				<tr>
+					<td>
+						<div style="text-align: left;">Date & Time : </div>
+					</td>
+					<td></td>
+					<td>
+						<div style="text-align: left;"> 25- 04-2022 8:00AM</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div style="text-align: left;">Name : </div>
+					</td>
+					<td></td>
+					<td>
+						<div style="text-align: left;">Azharul Islam Somon</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<div style="text-align:left">Mobile : </div>
+					</td>
+					<td></td>
+					<td>
+						<div style="text-align: left;">017855-25522</div>
+					</td>
+				</tr>
+
+                <tr>
+					<td>
+						<div style="text-align:left">Age   : </div>
+					</td>
+					<td></td>
+					<td>
+						<div style="text-align:left">26 Y</div>
+					</td>
+				</tr>
+
+                <tr>
+					<td>
+                        <div style="text-align:left">Sex   :</div>
+					</td>
+					<td></td>
+					<td>
+						<div style="text-align:left">Male</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div style="text-align: left;">Refd. by Prof/Dr. : </div>
+					</td>
+					<td></td>
+					<td>
+						<div style="text-align: left;">Shamima Akther Shimla</div>
+					</td>
+				</tr>
+				
+				
+			</table>
+
+			<table id="customers" style=" margin-top: 10px; margin-bottom: 10px; width:70%; border: 1px solid black; border-collapse: collapse;">
+				<tr>
+					<th>Test Name</th>
+					<th>Description</th>
+					<th>Amount </th>
+					<th>Discount</th>
+				</tr>
+			
+					<tr>
+						<td></td>
+						
+						<td>{{value}}</td>
+						<td>{{value}}</td>
+						<td>{{value}}</td>
+						<td>{{value}}</td>
+						
+					</tr>
+				
+
+		
+					<tr>
+						<td>Scan</td>
+						<td>Scan Description.... </td>
+						<td>1000</td>
+						<td>500</td>
+					</tr>
+
+					<tr>
+						<td>X-Ray</td>
+						<td>X-Ray Description.... </td>
+						<td>500</td>
+						<td>0</td>
+					</tr>
+			
+
+			
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				
+				
+			</table>
+			
+		</div>
+
+		<!-- Content for Static Frame 'footer_frame' -->
+		<div id="footer_content">
+			<table style="width: 100%;">
+				<tr>
+					<td style="width: 60%; padding-top:3px; margin-top:5px; background-color: rgb(19,60,92); font-weight:bold; color:white; padding-left:2px; ">Terms And Conditions</td>
+					<td style="width: 20%; padding-top:3px; padding-left:2px; text-align: right;"></td>
+					<td style="width: 10%; padding-top:3px; padding-left:2px; "></td>
+				</tr>
+				
+				<tr>
+					<td style="width: 60%; padding-top:1px; padding-left:2px; ">1. If there is a problem at Bangladesh Custom or missing, you have to wait for minimum 90 days.</td>
+					<td style="width: 20%; padding-top:1px; padding-left:2px; font-weight:bold;text-align: right;">Total Amount:</td>
+					<td style="width: 20%; padding-top:1px; padding-left:2px; font-weight:bold;">1000 </td>
+				</tr>
+				<tr>
+					<td style="width: 60%; padding-top:1px; padding-left:2px; ">2. No complaint will be admissible after the office hands over the goods at its own risk.</td>
+					<td style="width: 20%; padding-top:1px; padding-left:2px; text-align: right;">Discount :</td>
+					<td style="width: 20%; padding-top:1px; padding-left:2px; ">500</td>
+				</tr>
+			
+
+				<tr>
+					<td style="width: 60%; padding-top:1px; padding-left:2px; "></td>
+					<td style="width: 20%; padding-top:1px; padding-left:2px; text-align: right;">Grand Total :</td>
+					<td style="width: 20%; padding-top:1px; padding-left:2px; ">1000</td>
+				</tr>
+
+				<tr>
+					<td style="width: 60%; padding-top:1px; padding-left:2px; "></td>
+					<td style="width: 20%; padding-top:1px; padding-left:2px; text-align: right;">Received Amount :</td>
+					<td style="width: 20%; padding-top:1px; padding-left:2px; ">600</td>
+				</tr>
+				
+				<tr>
+					<td style="width: 60%; padding-top:1px; padding-left:2px; "></td>
+					<td style="width: 20%; padding-top:1px; padding-left:2px; text-align: right;">Due Amount :</td>
+					<td style="width: 20%; padding-top:1px; padding-left:2px; ">0</td>
+				</tr>
+			</table>
+
+			<br/>
+			<div style="font-size:14px">Note : .........................................................................................................................................................................</div>
+			<br/>
+			
+		</div>
+		
+	</body>
+
+</html>
